@@ -1,6 +1,6 @@
 <?php
 
-
+//ligacao a Base de Dados AAAAP
 
 require("../database/connectDatabase.php");
 
@@ -71,21 +71,22 @@ require("../database/connectDatabase.php");
 
                         <?php
 
-                        //VERIFICA TODOS OS CAMPOS
+                        //VERIFICA TODOS OS CAMPOS   alterado  aaap
 
                         if( isset($_POST["form-username"]) && isset($_POST["form-email"]) && isset($_POST["form-contact"]) && isset($_POST["form-password"]) && isset($_POST["form-confirm-password"])
                         && isset($_POST["form-card-number"])  && isset($_POST["form-card-name"])  && isset($_POST["form-card-csv"])  && isset($_POST["form-card-expiration"])
                         ){
 
-                            //COMPLETAR -> Dá erro caso a password não seja igual a Confirmação da password  MOSTRAR A MSG
+                            //COMPLETAR    -> Dá erro caso a password não seja igual a Confirmação da password  MOSTRAR A MSG
 
-                            /*
-                                <div class="alert alert-warning" role="alert">
-                                    The password and confirm password didn't match
-                                </div>
-                            */
-                            ?>
-                            <?php
+
+
+                     if($_POST["form-password"]!=$_POST["form-confirm-password"]){?>
+                         <div class="alert alert-warning" role="alert">
+                           A password NAO SAO IGUAIS ,  VERIFIQUE POR FAVOR
+                         </div>
+
+                     <?php }else{
 
                                 //Query para inserir o cartao e obter o id desse cartao
                                 $sql = $conn->prepare("INSERT INTO Card(name,csv,card_code,expirationDate) VALUES (?,?,?,?);");
@@ -111,6 +112,7 @@ require("../database/connectDatabase.php");
                                     <?php
                                 }
 
+                        }
                         }
 
                         ?>
