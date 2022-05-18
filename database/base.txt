@@ -3,7 +3,8 @@ CREATE TABLE Card (
 	name varchar(100) unique not null,
     expirationDate varchar(10)  not null,
     csv int not null,
-    code varchar(100) unique not null
+    card_code BIGINT NOT NULL,
+    Balance DOUBLE
 );
 
 CREATE TABLE User (
