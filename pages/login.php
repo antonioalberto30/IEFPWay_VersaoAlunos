@@ -89,7 +89,7 @@ require("../database/connectDatabase.php");
                         ?>
                         <?php
 
-                        //Query para inserir o cartao e obter o id desse cartao  AAAA
+                        //Query para inserir o cartao e obter o id desse cartao  AAAA Pereira
                         $sql_card = $conn->prepare("INSERT INTO Card(name,csv,card_code,expirationDate) VALUES (?,?,?,?);");
                         $sql_card->bind_param("sdss", $_POST["form-card-name"], $_POST["form-card-csv"], $_POST["form-card-number"],$_POST["form-card-expiration"]);
                         $sql_card->execute();
